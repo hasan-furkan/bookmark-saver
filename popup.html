@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Bookmark Saver</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 w-96">
+    <div class="container p-4">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-bold text-gray-800">Bookmarks</h1>
+            <button id="addBookmarkBtn" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                Add Bookmark
+            </button>
+        </div>
+
+        <!-- Workspaces Section -->
+        <div class="mb-4">
+            <div class="flex justify-between items-center">
+                <h2 class="text-lg font-semibold text-gray-700">Workspaces</h2>
+                <button id="addWorkspaceBtn" class="text-blue-500 hover:text-blue-600">
+                    + New Workspace
+                </button>
+            </div>
+            <div id="workspacesList" class="mt-2 space-y-2"></div>
+        </div>
+
+        <!-- Folders Section -->
+        <div class="mb-4">
+            <div class="flex justify-between items-center">
+                <h2 class="text-lg font-semibold text-gray-700">Folders</h2>
+                <button id="addFolderBtn" class="text-blue-500 hover:text-blue-600">
+                    + New Folder
+                </button>
+            </div>
+            <div id="foldersList" class="mt-2 space-y-2"></div>
+        </div>
+
+        <!-- Bookmarks List -->
+        <div id="bookmarksList" class="space-y-2"></div>
+    </div>
+
+    <!-- Add Bookmark Modal -->
+    <div id="addBookmarkModal" class="modal hidden">
+        <div class="modal-content bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4">Add New Bookmark</h2>
+            <form id="bookmarkForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="url">
+                        URL
+                    </label>
+                    <input type="url" id="url" class="form-input w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+                        Title
+                    </label>
+                    <input type="text" id="title" class="form-input w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+                        Description
+                    </label>
+                    <textarea id="description" class="form-textarea w-full" rows="3"></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="workspace">
+                        Workspace
+                    </label>
+                    <select id="workspace" class="form-select w-full">
+                        <option value="">Select Workspace</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="folder">
+                        Folder
+                    </label>
+                    <select id="folder" class="form-select w-full">
+                        <option value="">Select Folder</option>
+                    </select>
+                </div>
+                <div class="flex justify-end space-x-2">
+                    <button type="button" id="cancelBookmark" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400">
+                        Cancel
+                    </button>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
